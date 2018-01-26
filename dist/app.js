@@ -1,8 +1,5 @@
 webpackJsonp([0],[
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17,7 +14,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var Vue = _interopDefault(__webpack_require__(0));
+var Vue = _interopDefault(__webpack_require__(1));
 
 var hasProto = { __proto__: [] } instanceof Array;
 function createDecorator(factory) {
@@ -200,9 +197,12 @@ var Component$1 = Component;
 exports['default'] = Component$1;
 exports.createDecorator = createDecorator;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */,
 /* 4 */,
 /* 5 */,
 /* 6 */,
@@ -211,11 +211,15 @@ exports.createDecorator = createDecorator;
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__demo0_js__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__demo1_js__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__demo2_js__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__demo3_js__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__demo4_js__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__demo5_js__ = __webpack_require__(13);
+
+
 
 
 
@@ -266,6 +270,32 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
     }
 }).$mount(document.querySelector('#demo3'));
 
+new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
+    render: function render(h) {
+        return h(
+            __WEBPACK_IMPORTED_MODULE_5__demo4_js__["a" /* default */],
+            {
+                attrs: { click: function click() {
+                        return alert('Handle Event');
+                    } }
+            },
+            []
+        );
+    }
+}).$mount(document.querySelector('#demo4'));
+
+new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
+    render: function render(h) {
+        return h(
+            __WEBPACK_IMPORTED_MODULE_6__demo5_js__["a" /* default */],
+            {
+                attrs: { innerText: 'Operate Props' }
+            },
+            []
+        );
+    }
+}).$mount(document.querySelector('#demo5'));
+
 /***/ }),
 /* 8 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -288,7 +318,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Demo1; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -326,7 +356,7 @@ var Demo1 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class =
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -425,7 +455,7 @@ var Demo2Extend = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___def
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
 var _dec2, _dec3, _class2;
 
@@ -439,7 +469,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-// 反向继承 渲染劫持
+// 反向继承 - 渲染劫持
 var CatchError = function CatchError(errorMessage) {
     return function (WrapComponent) {
         var _dec, _class;
@@ -507,6 +537,175 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vu
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Demo3);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
+var _dec2, _class2;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// @flow
+
+
+var properties = {
+    props: {
+        click: Function
+    }
+
+    // 属性代理 - 事件劫持
+};var ClickHandler = function ClickHandler(WrappedComponent) {
+    var _dec, _class;
+
+    return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec(_class = function () {
+        function NewDemo4() {
+            _classCallCheck(this, NewDemo4);
+        }
+
+        _createClass(NewDemo4, [{
+            key: 'handleClick',
+            value: function handleClick() {
+                alert('before handle');
+                var click = this.click;
+
+                click && click.apply(undefined, arguments);
+                alert('after handle');
+            }
+        }, {
+            key: 'render',
+            value: function render() {
+                var h = arguments[0];
+
+                var newProps = {
+                    props: {
+                        click: this.handleClick
+                    }
+                };
+
+                return h(
+                    WrappedComponent,
+                    newProps,
+                    []
+                );
+            }
+        }]);
+
+        return NewDemo4;
+    }()) || _class;
+};
+
+var Demo4 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), ClickHandler(_class2 = _dec2(_class2 = function () {
+    function Demo4() {
+        _classCallCheck(this, Demo4);
+    }
+
+    _createClass(Demo4, [{
+        key: 'render',
+        value: function render() {
+            var h = arguments[0];
+
+            return h(
+                'div',
+                { 'class': 'class4', on: {
+                        'click': this.click
+                    }
+                },
+                ['Click Me']
+            );
+        }
+    }]);
+
+    return Demo4;
+}()) || _class2) || _class2);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (Demo4);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
+var _dec2, _dec3, _class2;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var properties = {
+    props: {
+        innerText: String
+    }
+};
+
+// 属性代理 - 操作Props
+var ProxyProperties = function ProxyProperties(prefix) {
+    return function (WrappedComponent) {
+        var _dec, _class;
+
+        return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec(_class = function () {
+            function NewDemo5() {
+                _classCallCheck(this, NewDemo5);
+            }
+
+            _createClass(NewDemo5, [{
+                key: 'render',
+                value: function render() {
+                    var h = arguments[0];
+
+                    var newProps = {
+                        attrs: {
+                            innerText: prefix + this.innerText
+                        }
+                    };
+
+                    return h(
+                        WrappedComponent,
+                        newProps,
+                        []
+                    );
+                }
+            }]);
+
+            return NewDemo5;
+        }()) || _class;
+    };
+};
+
+var Demo5 = (_dec2 = ProxyProperties('Prefix is HAHA'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec2(_class2 = _dec3(_class2 = function () {
+    function Demo5() {
+        _classCallCheck(this, Demo5);
+    }
+
+    _createClass(Demo5, [{
+        key: 'render',
+        value: function render() {
+            var h = arguments[0];
+
+            console.info(this);
+            return h(
+                'div',
+                { 'class': 'demo5' },
+                [this.innerText]
+            );
+        }
+    }]);
+
+    return Demo5;
+}()) || _class2) || _class2);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (Demo5);
 
 /***/ })
 ],[7]);

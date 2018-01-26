@@ -1,6 +1,6 @@
 import Component from 'vue-class-component';
 
-// 反向继承 渲染劫持
+// 反向继承 - 渲染劫持
 const CatchError = (errorMessage) => (WrapComponent) => 
     @Component({
         name: WrapComponent .options.name + 'Controller',

@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^7.1.2",
@@ -13,8 +14,10 @@
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
     "css-loader": "^0.28.9",
     "extract-text-webpack-plugin": "^3.0.2",
+    "flow-bin": "^0.64.0",
     "html-webpack-plugin": "^2.30.1",
     "postcss-loader": "^2.0.10",
     "sass-loader": "^6.0.6",
@@ -26,7 +29,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && serve dist"
+    "build": "webpack && serve dist",
+    "flow": "flow",
+    "flowStop": "flow stop",
+    "flowStatus": "flow status"
   },
   "author": "",
   "license": "ISC"

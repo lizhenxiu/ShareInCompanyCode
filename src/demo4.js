@@ -8,15 +8,14 @@ const properties = {
 
 // 属性代理 - 操作Props
 const ProxyProperties = (prefix) => (WrappedComponent) =>  
-
-    @Component(properties)
-    class NewDemo4 {
+    @Component(Object.assign({}, properties))
+    class NewDemo5 {
         render() {
             const newProps = {
-                innerText: prefix + this.innerText,
+                attrs: {
+                    innerText: prefix + this.innerText,
+                }
             };
-
-            console.info(newProps);
 
             return (
                 <WrappedComponent { ...newProps } />
@@ -24,13 +23,14 @@ const ProxyProperties = (prefix) => (WrappedComponent) =>
         }
     }
 
-@Component(properties)
-class Demo4s {
+@ProxyProperties('Prefix is HAHA')
+@Component(Object.assign({}, properties))
+class Demo5 {
     render() {
         return (
-            <div class="demo4">{ this.innerText }</div>
+            <div class="demo5">{ this.innerText }</div>
         );
     }
 }
 
-export default ProxyProperties('Hahaha')(Demo4s);
+export default Demo5;
