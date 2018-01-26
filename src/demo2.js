@@ -2,7 +2,7 @@ import Component from 'vue-class-component';
 
 @Component({
     props: {
-        innerText: String,
+        text: String,
     },
 })
 class Demo2 {
@@ -13,16 +13,12 @@ class Demo2 {
 
     render() {
         return (
-            <div class="demo2">{ this.innerText }</div>
+            <div class="demo2">{ this.text }{ ` And my name is ${ this.getName() }` }</div>
         )
     }
 }
 
-@Component({
-    props: {
-        name: String,
-    }
-})
+@Component
 class Demo2Extend extends Demo2 {
 
     // @override
@@ -34,14 +30,15 @@ class Demo2Extend extends Demo2 {
     // @override
     render() {
         // super is not supported
-        const vnode = Demo2Extend.options.render.call(this, this.$createElement);
-
-        vnode.data.class += '-extend';
-
-        vnode.children.push(<div>Demo2Extend render content: { this.getName() }</div>);
-
-        return vnode;
+        const view = Demo2Extend.options.render.call(this, this.$createElement);
+        return (
+            <div class="border" style={{ border: 'solid 2px red' }}>
+                { view }
+            </div>
+        );
     }
 }
+
+// 可以改造成HOC形式吗?
 
 export default Demo2Extend;

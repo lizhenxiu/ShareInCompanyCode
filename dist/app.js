@@ -251,7 +251,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
         return h(
             __WEBPACK_IMPORTED_MODULE_3__demo2_js__["a" /* default */],
             {
-                attrs: { innerText: 'Yes, I am Demo2 Text' }
+                attrs: { text: 'Yes, I am Demo2 Text' }
             },
             []
         );
@@ -263,7 +263,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
         return h(
             __WEBPACK_IMPORTED_MODULE_4__demo3_js__["a" /* default */],
             {
-                attrs: { innerText: 'Hey demo3, What is HOC?' }
+                attrs: { text: 'Hey demo3, What is HOC?' }
             },
             []
         );
@@ -275,21 +275,22 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
         return h(
             __WEBPACK_IMPORTED_MODULE_5__demo4_js__["a" /* default */],
             {
-                attrs: { click: function click() {
-                        return alert('Handle Event');
-                    } }
+                attrs: { text: 'Operate Props' }
             },
             []
         );
     }
 }).$mount(document.querySelector('#demo4'));
 
+var name = 'Me';
 new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
     render: function render(h) {
         return h(
             __WEBPACK_IMPORTED_MODULE_6__demo5_js__["a" /* default */],
             {
-                attrs: { innerText: 'Operate Props' }
+                attrs: { click: function click() {
+                        return alert('Handle Event');
+                    }, name: name }
             },
             []
         );
@@ -360,7 +361,7 @@ var Demo1 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class =
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class, _dec2, _class2;
+var _dec, _class, _class2;
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
@@ -372,7 +373,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var Demo2 = (_dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
     props: {
-        innerText: String
+        text: String
     }
 }), _dec(_class = function () {
     function Demo2() {
@@ -392,18 +393,15 @@ var Demo2 = (_dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(
             return h(
                 "div",
                 { "class": "demo2" },
-                [this.innerText]
+                [this.text, " And my name is " + this.getName()]
             );
         }
     }]);
 
     return Demo2;
 }()) || _class);
-var Demo2Extend = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
-    props: {
-        name: String
-    }
-}), _dec2(_class2 = function (_Demo) {
+
+var Demo2Extend = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class2 = function (_Demo) {
     _inherits(Demo2Extend, _Demo);
 
     function Demo2Extend() {
@@ -430,23 +428,19 @@ var Demo2Extend = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___def
             var h = arguments[0];
 
             // super is not supported
-            var vnode = Demo2Extend.options.render.call(this, this.$createElement);
-
-            vnode.data.class += '-extend';
-
-            vnode.children.push(h(
+            var view = Demo2Extend.options.render.call(this, this.$createElement);
+            return h(
                 "div",
-                null,
-                ["Demo2Extend render content: ", this.getName()]
-            ));
-
-            return vnode;
+                { "class": "border", style: { border: 'solid 2px red' } },
+                [view]
+            );
         }
     }]);
 
     return Demo2Extend;
-}(Demo2)) || _class2);
+}(Demo2)) || _class2;
 
+// 可以改造成HOC形式吗?
 
 /* harmony default export */ __webpack_exports__["a"] = (Demo2Extend);
 
@@ -509,7 +503,7 @@ var CatchError = function CatchError(errorMessage) {
 
 var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
     props: {
-        innerText: String
+        text: String
     }
 }), _dec2(_class2 = _dec3(_class2 = function () {
     function Demo3() {
@@ -526,8 +520,8 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vu
 
             return h(
                 'div',
-                { 'class': 'class3' },
-                [this.innerText]
+                { 'class': 'demo3' },
+                [this.text]
             );
         }
     }]);
@@ -545,62 +539,57 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vu
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
-var _dec2, _class2;
+var _dec2, _dec3, _class2;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-// @flow
 
 
 var properties = {
     props: {
-        click: Function
+        text: String
     }
-
-    // 属性代理 - 事件劫持
-};var ClickHandler = function ClickHandler(WrappedComponent) {
-    var _dec, _class;
-
-    return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec(_class = function () {
-        function NewDemo4() {
-            _classCallCheck(this, NewDemo4);
-        }
-
-        _createClass(NewDemo4, [{
-            key: 'handleClick',
-            value: function handleClick() {
-                alert('before handle');
-                var click = this.click;
-
-                click && click.apply(undefined, arguments);
-                alert('after handle');
-            }
-        }, {
-            key: 'render',
-            value: function render() {
-                var h = arguments[0];
-
-                var newProps = {
-                    props: {
-                        click: this.handleClick
-                    }
-                };
-
-                return h(
-                    WrappedComponent,
-                    newProps,
-                    []
-                );
-            }
-        }]);
-
-        return NewDemo4;
-    }()) || _class;
 };
 
-var Demo4 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), ClickHandler(_class2 = _dec2(_class2 = function () {
+// 属性代理 - 操作Props
+var ProxyProperties = function ProxyProperties(prefix) {
+    return function (WrappedComponent) {
+        var _dec, _class;
+
+        return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_extends({}, properties)), _dec(_class = function () {
+            function NewDemo4() {
+                _classCallCheck(this, NewDemo4);
+            }
+
+            _createClass(NewDemo4, [{
+                key: 'render',
+                value: function render() {
+                    var h = arguments[0];
+
+                    var newProps = {
+                        props: {
+                            text: prefix + this.text
+                        }
+                    };
+
+                    return h(
+                        WrappedComponent,
+                        newProps,
+                        []
+                    );
+                }
+            }]);
+
+            return NewDemo4;
+        }()) || _class;
+    };
+};
+
+var Demo4 = (_dec2 = ProxyProperties('Prefix is HAHA '), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_extends({}, properties)), _dec2(_class2 = _dec3(_class2 = function () {
     function Demo4() {
         _classCallCheck(this, Demo4);
     }
@@ -612,11 +601,8 @@ var Demo4 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()
 
             return h(
                 'div',
-                { 'class': 'class4', on: {
-                        'click': this.click
-                    }
-                },
-                ['Click Me']
+                { 'class': 'demo4' },
+                [this.text]
             );
         }
     }]);
@@ -634,9 +620,11 @@ var Demo4 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
-var _dec2, _dec3, _class2;
+var _dec2, _class2;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -644,45 +632,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var properties = {
     props: {
-        innerText: String
+        name: String,
+        click: Function
     }
 };
 
-// 属性代理 - 操作Props
-var ProxyProperties = function ProxyProperties(prefix) {
-    return function (WrappedComponent) {
-        var _dec, _class;
+// 属性代理 - 事件劫持
+var ProxyClick = function ProxyClick(WrappedComponent) {
+    var _dec, _class;
 
-        return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec(_class = function () {
-            function NewDemo5() {
-                _classCallCheck(this, NewDemo5);
+    return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_extends({}, properties)), _dec(_class = function () {
+        function NewDemo5() {
+            _classCallCheck(this, NewDemo5);
+        }
+
+        _createClass(NewDemo5, [{
+            key: 'handleClick',
+            value: function handleClick() {
+                alert('before handle');
+
+                var click = this.click;
+
+                click && click.apply(undefined, arguments);
+
+                alert('after handle');
             }
+        }, {
+            key: 'render',
+            value: function render() {
+                var h = arguments[0];
 
-            _createClass(NewDemo5, [{
-                key: 'render',
-                value: function render() {
-                    var h = arguments[0];
+                var oldProps = this.$props;
+                var newProps = {
+                    props: _extends({}, oldProps, {
+                        click: this.handleClick
+                    })
+                };
 
-                    var newProps = {
-                        attrs: {
-                            innerText: prefix + this.innerText
-                        }
-                    };
+                return h(
+                    WrappedComponent,
+                    newProps,
+                    []
+                );
+            }
+        }]);
 
-                    return h(
-                        WrappedComponent,
-                        newProps,
-                        []
-                    );
-                }
-            }]);
-
-            return NewDemo5;
-        }()) || _class;
-    };
+        return NewDemo5;
+    }()) || _class;
 };
 
-var Demo5 = (_dec2 = ProxyProperties('Prefix is HAHA'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(Object.assign({}, properties)), _dec2(_class2 = _dec3(_class2 = function () {
+var Demo5 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_extends({}, properties)), ProxyClick(_class2 = _dec2(_class2 = function () {
     function Demo5() {
         _classCallCheck(this, Demo5);
     }
@@ -692,11 +691,13 @@ var Demo5 = (_dec2 = ProxyProperties('Prefix is HAHA'), _dec3 = __WEBPACK_IMPORT
         value: function render() {
             var h = arguments[0];
 
-            console.info(this);
             return h(
                 'div',
-                { 'class': 'demo5' },
-                [this.innerText]
+                { 'class': 'demo5', on: {
+                        'click': this.click
+                    }
+                },
+                ['Click ', this.name]
             );
         }
     }]);

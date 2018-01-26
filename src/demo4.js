@@ -2,18 +2,18 @@ import Component from 'vue-class-component';
 
 const properties = {
     props: {
-        innerText: String,
+        text: String,
     }
 };
 
 // 属性代理 - 操作Props
 const ProxyProperties = (prefix) => (WrappedComponent) =>  
-    @Component(Object.assign({}, properties))
-    class NewDemo5 {
+    @Component({ ...properties })
+    class NewDemo4 {
         render() {
             const newProps = {
-                attrs: {
-                    innerText: prefix + this.innerText,
+                props: {
+                    text: prefix + this.text,
                 }
             };
 
@@ -23,14 +23,14 @@ const ProxyProperties = (prefix) => (WrappedComponent) =>
         }
     }
 
-@ProxyProperties('Prefix is HAHA')
-@Component(Object.assign({}, properties))
-class Demo5 {
+@ProxyProperties('Prefix is HAHA ')
+@Component({ ...properties })
+class Demo4 {
     render() {
         return (
-            <div class="demo5">{ this.innerText }</div>
+            <div class="demo4">{ this.text }</div>
         );
     }
 }
 
-export default Demo5;
+export default Demo4;

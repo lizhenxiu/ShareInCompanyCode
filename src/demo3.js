@@ -18,7 +18,7 @@ const CatchError = (errorMessage) => (WrapComponent) =>
 @CatchError('Error')
 @Component({
     props: {
-        innerText: String,
+        text: String,
     }
 })
 class Demo3 {
@@ -27,7 +27,7 @@ class Demo3 {
         // throw new Error('an error in render');
 
         return (
-            <div class="class3">{ this.innerText }</div>
+            <div class="demo3">{ this.text }</div>
         );
     }
 }

@@ -20,25 +20,26 @@ new Vue({
 
 new Vue({
     render(h) {
-        return <Demo2 innerText={'Yes, I am Demo2 Text'} />;
+        return <Demo2 text={'Yes, I am Demo2 Text'} />;
     },
 }).$mount(document.querySelector('#demo2'));
 
 new Vue({
     render(h) {
-        return <Demo3 innerText={'Hey demo3, What is HOC?'} />;
+        return <Demo3 text={'Hey demo3, What is HOC?'} />;
     },
 }).$mount(document.querySelector('#demo3'));
 
 new Vue({
     render(h) {
-        return <Demo4 innerText={'Operate Props'}/>;
+        return <Demo4 text={'Operate Props'}/>;
     },
 }).$mount(document.querySelector('#demo4'));
 
+const name = 'Me';
 new Vue({
     render(h) {
-        return <Demo5 click={ () => alert('Handle Event') }/>;
+        return <Demo5 click={ () => alert('Handle Event') } name={ name }/>;
     },
 }).$mount(document.querySelector('#demo5'));
 
