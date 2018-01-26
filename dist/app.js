@@ -451,7 +451,7 @@ var Demo2Extend = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_c
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
-var _dec2, _dec3, _class2;
+var _dec2, _dec3, _dec4, _dec5, _class3;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -490,7 +490,7 @@ var CatchError = function CatchError(errorMessage) {
                         return h(
                             'div',
                             { style: { color: 'red' } },
-                            [errorMessage, e.message]
+                            [errorMessage, ' ', e.message]
                         );
                     }
                 }
@@ -501,11 +501,43 @@ var CatchError = function CatchError(errorMessage) {
     };
 };
 
-var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
+var Border = function Border(color) {
+    return function (WrapComponent) {
+        var _class2;
+
+        return __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class2 = function (_WrapComponent2) {
+            _inherits(BorderDemo3, _WrapComponent2);
+
+            function BorderDemo3() {
+                _classCallCheck(this, BorderDemo3);
+
+                return _possibleConstructorReturn(this, (BorderDemo3.__proto__ || Object.getPrototypeOf(BorderDemo3)).apply(this, arguments));
+            }
+
+            _createClass(BorderDemo3, [{
+                key: 'render',
+                value: function render() {
+                    var h = arguments[0];
+
+                    var view = WrapComponent.options.render.call(this, this.$createElement);
+                    return h(
+                        'div',
+                        { style: { border: 'solid 5px ' + color } },
+                        [view]
+                    );
+                }
+            }]);
+
+            return BorderDemo3;
+        }(WrapComponent)) || _class2;
+    };
+};
+
+var Demo3 = (_dec2 = CatchError('Error'), _dec3 = Border('blue'), _dec4 = Border('pink'), _dec5 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
     props: {
         text: String
     }
-}), _dec2(_class2 = _dec3(_class2 = function () {
+}), _dec2(_class3 = _dec3(_class3 = _dec4(_class3 = _dec5(_class3 = function () {
     function Demo3() {
         _classCallCheck(this, Demo3);
     }
@@ -516,7 +548,7 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vu
             var h = arguments[0];
 
 
-            // throw new Error('an error in render');
+            throw new Error('an error in render');
 
             return h(
                 'div',
@@ -527,7 +559,7 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = __WEBPACK_IMPORTED_MODULE_0_vu
     }]);
 
     return Demo3;
-}()) || _class2) || _class2);
+}()) || _class3) || _class3) || _class3) || _class3);
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Demo3);
