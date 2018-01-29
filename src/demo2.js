@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import Component from 'vue-class-component';
 
 @Component({
@@ -5,16 +6,18 @@ import Component from 'vue-class-component';
         text: String,
     },
 })
-class Demo2 {
+class Demo2 extends Vue {
 
-    getName() {
-        return "Demo2";
+    name = "Demo2";
+
+    doSomeThing() {
+        return `Hello ${ this.name }`;
     }
 
     render() {
         return (
-            <div class="demo2">{ this.text }{ ` And my name is ${ this.getName() }` }</div>
-        )
+            <div class="demo2">{ this.text }{ ` And ${ this.doSomeThing() }` }</div>
+        );
     }
 }
 
@@ -22,15 +25,15 @@ class Demo2 {
 class Demo2Extend extends Demo2 {
 
     // @override
-    getName() {
-        return Demo2Extend.options.methods.getName.call(this) + 'Extend';
-        // super.getName() + 'Extend';
+    doSomeThing() {
+        const superValue = Demo2.options.methods.doSomeThing.call(this);
+        return `${ superValue } was extended`;
     }
 
     // @override
     render() {
         // super is not supported
-        const view = Demo2Extend.options.render.call(this, this.$createElement);
+        const view = Demo2.options.render.call(this, this.$createElement);
         return (
             <div class="border" style={{ border: 'solid 2px red' }}>
                 { view }
@@ -41,4 +44,4 @@ class Demo2Extend extends Demo2 {
 
 // 可以改造成HOC形式吗?
 
-export default Demo2Extend;
+export { Demo2, Demo2Extend };

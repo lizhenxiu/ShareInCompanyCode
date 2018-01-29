@@ -3,12 +3,13 @@ import Vue from 'vue';
 import Classic from './classic.vue';
 import Demo0 from './demo0.js';
 import Demo1 from './demo1.js';
-import Demo2 from './demo2.js';
+import { Demo2, Demo2Extend } from './demo2.js';
 import Demo3 from './demo3.js';
 import Demo4 from './demo4.js';
 import Demo5 from './demo5.js';
 
 new Vue({
+    template: '<classic />',
     components: {
         classic: Classic,
     },
@@ -28,7 +29,12 @@ new Vue({
 
 new Vue({
     render(h) {
-        return <Demo2 text={'Yes, I am Demo2 Text'} />;
+        return (
+            <div>
+                <Demo2 text={'Yes, I am Demo2 Text'} />
+                <Demo2Extend text="Yes, I am Demo2 Text" />
+            </div>
+        );
     },
 }).$mount(document.querySelector('#demo2'));
 

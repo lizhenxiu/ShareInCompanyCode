@@ -243,7 +243,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
 new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
+    template: '<classic />',
     components: {
         classic: __WEBPACK_IMPORTED_MODULE_1__classic_vue__["a" /* default */]
     }
@@ -272,11 +274,21 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
 new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
     render: function render(h) {
         return h(
-            __WEBPACK_IMPORTED_MODULE_4__demo2_js__["a" /* default */],
-            {
-                attrs: { text: 'Yes, I am Demo2 Text' }
-            },
-            []
+            'div',
+            null,
+            [h(
+                __WEBPACK_IMPORTED_MODULE_4__demo2_js__["a" /* Demo2 */],
+                {
+                    attrs: { text: 'Yes, I am Demo2 Text' }
+                },
+                []
+            ), h(
+                __WEBPACK_IMPORTED_MODULE_4__demo2_js__["b" /* Demo2Extend */],
+                {
+                    attrs: { text: 'Yes, I am Demo2 Text' }
+                },
+                []
+            )]
         );
     }
 }).$mount(document.querySelector('#demo2'));
@@ -877,7 +889,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("Hello Classic")])
+  return _c("div", { staticClass: "classic" }, [_vm._v("Hello Classic")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -950,51 +962,67 @@ var Demo1 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class =
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Demo2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return Demo2Extend; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_class_component__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue_class_component__);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _dec, _class, _class2;
+var _dec, _class, _class3;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 
 
-var Demo2 = (_dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
+var Demo2 = (_dec = __WEBPACK_IMPORTED_MODULE_1_vue_class_component___default()({
     props: {
         text: String
     }
-}), _dec(_class = function () {
+}), _dec(_class = function (_Vue) {
+    _inherits(Demo2, _Vue);
+
     function Demo2() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, Demo2);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Demo2.__proto__ || Object.getPrototypeOf(Demo2)).call.apply(_ref, [this].concat(args))), _this), _this.name = "Demo2", _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Demo2, [{
-        key: "getName",
-        value: function getName() {
-            return "Demo2";
+        key: 'doSomeThing',
+        value: function doSomeThing() {
+            return 'Hello ' + this.name;
         }
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var h = arguments[0];
 
             return h(
-                "div",
-                { "class": "demo2" },
-                [this.text, " And my name is " + this.getName()]
+                'div',
+                { 'class': 'demo2' },
+                [this.text, ' And ' + this.doSomeThing()]
             );
         }
     }]);
 
     return Demo2;
-}()) || _class);
+}(__WEBPACK_IMPORTED_MODULE_0_vue__["default"])) || _class);
 
-var Demo2Extend = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class2 = function (_Demo) {
+var Demo2Extend = __WEBPACK_IMPORTED_MODULE_1_vue_class_component___default()(_class3 = function (_Demo) {
     _inherits(Demo2Extend, _Demo);
 
     function Demo2Extend() {
@@ -1004,38 +1032,38 @@ var Demo2Extend = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_c
     }
 
     _createClass(Demo2Extend, [{
-        key: "getName",
+        key: 'doSomeThing',
 
 
         // @override
-        value: function getName() {
-            return Demo2Extend.options.methods.getName.call(this) + 'Extend';
-            // super.getName() + 'Extend';
+        value: function doSomeThing() {
+            var superValue = Demo2.options.methods.doSomeThing.call(this);
+            return superValue + ' was extended';
         }
 
         // @override
 
     }, {
-        key: "render",
+        key: 'render',
         value: function render() {
             var h = arguments[0];
 
             // super is not supported
-            var view = Demo2Extend.options.render.call(this, this.$createElement);
+            var view = Demo2.options.render.call(this, this.$createElement);
             return h(
-                "div",
-                { "class": "border", style: { border: 'solid 2px red' } },
+                'div',
+                { 'class': 'border', style: { border: 'solid 2px red' } },
                 [view]
             );
         }
     }]);
 
     return Demo2Extend;
-}(Demo2)) || _class2;
+}(Demo2)) || _class3;
 
 // 可以改造成HOC形式吗?
 
-/* harmony default export */ __webpack_exports__["a"] = (Demo2Extend);
+
 
 /***/ }),
 /* 20 */
@@ -1044,7 +1072,7 @@ var Demo2Extend = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_c
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
-var _dec2, _dec3, _dec4, _dec5, _class3;
+var _dec, _dec2, _dec3, _dec4, _class3;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1059,20 +1087,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // 反向继承 - 渲染劫持
 var CatchError = function CatchError(errorMessage) {
     return function (WrapComponent) {
-        var _dec, _class;
+        var _class;
 
-        return _dec = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
-            name: WrapComponent.options.name + 'Controller'
-        }), _dec(_class = function (_WrapComponent) {
-            _inherits(NewDemo3, _WrapComponent);
+        return __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class = function (_WrapComponent) {
+            _inherits(CatchError, _WrapComponent);
 
-            function NewDemo3() {
-                _classCallCheck(this, NewDemo3);
+            function CatchError() {
+                _classCallCheck(this, CatchError);
 
-                return _possibleConstructorReturn(this, (NewDemo3.__proto__ || Object.getPrototypeOf(NewDemo3)).apply(this, arguments));
+                return _possibleConstructorReturn(this, (CatchError.__proto__ || Object.getPrototypeOf(CatchError)).apply(this, arguments));
             }
 
-            _createClass(NewDemo3, [{
+            _createClass(CatchError, [{
                 key: 'render',
                 value: function render() {
                     var h = arguments[0];
@@ -1089,7 +1115,7 @@ var CatchError = function CatchError(errorMessage) {
                 }
             }]);
 
-            return NewDemo3;
+            return CatchError;
         }(WrapComponent)) || _class;
     };
 };
@@ -1126,11 +1152,11 @@ var Border = function Border(color) {
     };
 };
 
-var Demo3 = (_dec2 = CatchError('Error'), _dec3 = Border('blue'), _dec4 = Border('pink'), _dec5 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
+var Demo3 = (_dec = CatchError('Error'), _dec2 = Border('blue'), _dec3 = Border('pink'), _dec4 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()({
     props: {
         text: String
     }
-}), _dec2(_class3 = _dec3(_class3 = _dec4(_class3 = _dec5(_class3 = function () {
+}), _dec(_class3 = _dec2(_class3 = _dec3(_class3 = _dec4(_class3 = function () {
     function Demo3() {
         _classCallCheck(this, Demo3);
     }
@@ -1141,7 +1167,7 @@ var Demo3 = (_dec2 = CatchError('Error'), _dec3 = Border('blue'), _dec4 = Border
             var h = arguments[0];
 
 
-            // throw new Error('an error in render');
+            throw new Error('an error in render');
 
             return h(
                 'div',
