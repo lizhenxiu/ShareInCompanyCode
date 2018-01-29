@@ -1,10 +1,18 @@
 import Vue from 'vue';
+
+import Classic from './classic.vue';
 import Demo0 from './demo0.js';
 import Demo1 from './demo1.js';
 import Demo2 from './demo2.js';
 import Demo3 from './demo3.js';
 import Demo4 from './demo4.js';
 import Demo5 from './demo5.js';
+
+new Vue({
+    components: {
+        classic: Classic,
+    },
+}).$mount(document.querySelector('#classic'));
 
 new Vue({
     render(h) {
@@ -32,14 +40,13 @@ new Vue({
 
 new Vue({
     render(h) {
-        return <Demo4 text={'Operate Props'}/>;
+        return <Demo4 text={'Operate Props'} />;
     },
 }).$mount(document.querySelector('#demo4'));
 
 const name = 'Me';
 new Vue({
     render(h) {
-        return <Demo5 click={ () => alert('Handle Event') } name={ name }/>;
+        return <Demo5 click={() => alert('Handle Event')} name={name} />;
     },
 }).$mount(document.querySelector('#demo5'));
-

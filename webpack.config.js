@@ -26,7 +26,9 @@ const COMMON_HTML_WEBPACK_PLUGIN_CONFIG = (name, chunks) => ({
 module.exports = function(env = '', argv) {
     const __DEV__ = env === 'development';
     const plugins = [
-        new HtmlWebpackPlugin(COMMON_HTML_WEBPACK_PLUGIN_CONFIG('app', ['vendor', 'app'])),
+        new HtmlWebpackPlugin(
+            COMMON_HTML_WEBPACK_PLUGIN_CONFIG('app', ['vendor', 'app']),
+        ),
         new CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor.js',
@@ -47,9 +49,18 @@ module.exports = function(env = '', argv) {
             // [see more](https://webpack.github.io/docs/configuration.html#output-publicpath)
             // publicPath: '',
         },
+        resolve: {
+            alias: {
+                vue$: 'vue/dist/vue.esm.js',
+            },
+        },
         plugins,
         module: {
             rules: [
+                {
+                    test: /\.vue/,
+                    loader: 'vue-loader',
+                },
                 {
                     test: /\.js[x]?/,
                     exclude: /node_modules/,
