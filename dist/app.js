@@ -687,6 +687,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__demo3_js__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__demo4_js__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__demo5_js__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__demo6_js__ = __webpack_require__(28);
+
 
 
 
@@ -792,6 +794,16 @@ new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
         );
     }
 }).$mount(document.querySelector('#demo5'));
+
+new __WEBPACK_IMPORTED_MODULE_0_vue__["default"]({
+    render: function render(h) {
+        return h(
+            __WEBPACK_IMPORTED_MODULE_9__demo6_js__["a" /* default */],
+            null,
+            []
+        );
+    }
+}).$mount(document.querySelector('#demo6'));
 
 /***/ }),
 /* 13 */
@@ -1522,6 +1534,108 @@ var Demo5 = (_dec2 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()
 
 
 /* harmony default export */ __webpack_exports__["a"] = (Demo5);
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_class_component__);
+var _class2, _dec, _class3;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+
+
+var Inject = function Inject(InjectComponent) {
+    return function (WrappedComponent) {
+        var _class;
+
+        return __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class = function (_WrappedComponent) {
+            _inherits(InjectController, _WrappedComponent);
+
+            function InjectController() {
+                _classCallCheck(this, InjectController);
+
+                return _possibleConstructorReturn(this, (InjectController.__proto__ || Object.getPrototypeOf(InjectController)).apply(this, arguments));
+            }
+
+            _createClass(InjectController, [{
+                key: "render",
+                value: function render() {
+                    var h = arguments[0];
+
+                    var view = WrappedComponent.options.render.call(this, this.$createElement);
+                    view.children.splice(0, 0, h(
+                        InjectComponent,
+                        null,
+                        []
+                    ));
+
+                    return view;
+                }
+            }]);
+
+            return InjectController;
+        }(WrappedComponent)) || _class;
+    };
+};
+
+var Icon = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class2 = function () {
+    function Icon() {
+        _classCallCheck(this, Icon);
+    }
+
+    _createClass(Icon, [{
+        key: "render",
+        value: function render() {
+            var h = arguments[0];
+
+            return h(
+                "i",
+                { style: "color: green;" },
+                ["\u5047\u88C5\u662F\u4E00\u4E2AIcon"]
+            );
+        }
+    }]);
+
+    return Icon;
+}()) || _class2;
+
+var Demo6 = (_dec = Inject(Icon), _dec(_class3 = __WEBPACK_IMPORTED_MODULE_0_vue_class_component___default()(_class3 = function () {
+    function Demo6() {
+        _classCallCheck(this, Demo6);
+    }
+
+    _createClass(Demo6, [{
+        key: "render",
+        value: function render() {
+            var h = arguments[0];
+
+            return h(
+                "div",
+                { "class": "demo6" },
+                [h(
+                    "span",
+                    null,
+                    ["Hello Demo6"]
+                )]
+            );
+        }
+    }]);
+
+    return Demo6;
+}()) || _class3) || _class3);
+
+
+/* harmony default export */ __webpack_exports__["a"] = (Demo6);
 
 /***/ })
 ],[12]);

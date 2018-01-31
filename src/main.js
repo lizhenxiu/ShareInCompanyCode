@@ -8,6 +8,7 @@ import { Demo2, Demo2Extend } from './demo2.js';
 import Demo3 from './demo3.js';
 import Demo4 from './demo4.js';
 import Demo5 from './demo5.js';
+import Demo6 from './demo6.js';
 
 new Vue({
     template: '<classic text="Text Content Props" />',
@@ -64,3 +65,9 @@ new Vue({
         return <Demo5 click={() => alert('Handle Event')} name={name} />;
     },
 }).$mount(document.querySelector('#demo5'));
+
+new Vue({
+    render(h) {
+        return <Demo6 />;
+    },
+}).$mount(document.querySelector('#demo6'));
