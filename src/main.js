@@ -1,6 +1,7 @@
 import Vue from 'vue';
 
 import Classic from './classic.vue';
+import Mixin from './mixin.vue';
 import Demo0 from './demo0.js';
 import Demo1 from './demo1.js';
 import { Demo2, Demo2Extend } from './demo2.js';
@@ -9,11 +10,18 @@ import Demo4 from './demo4.js';
 import Demo5 from './demo5.js';
 
 new Vue({
-    template: '<classic />',
+    template: '<classic text="Text Content Props" />',
     components: {
         classic: Classic,
     },
 }).$mount(document.querySelector('#classic'));
+
+new Vue({
+    template: '<mixin />',
+    components: {
+        mixin: Mixin,
+    },
+}).$mount(document.querySelector('#mixin'));
 
 new Vue({
     render(h) {
