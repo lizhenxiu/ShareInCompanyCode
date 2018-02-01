@@ -5,13 +5,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const DIST_DIR = path.join(__dirname, 'dist');
 
-const COMMON_HTML_WEBPACK_PLUGIN_CONFIG = (name, chunks) => ({
+const COMMON_HTML_WEBPACK_PLUGIN_CONFIG = (name, chunks, tmpl) => ({
     /* 
      * [see more](https://github.com/jantimon/html-webpack-plugin#configuration)
      */
     title: 'Here is title',
     filename: `${name}.html`,
-    template: './templates/tpl.html',
+    template: tmpl,
     /*
      * a icon path
      */
@@ -27,7 +27,10 @@ module.exports = function(env = '', argv) {
     const __DEV__ = env === 'development';
     const plugins = [
         new HtmlWebpackPlugin(
-            COMMON_HTML_WEBPACK_PLUGIN_CONFIG('app', ['vendor', 'app']),
+            COMMON_HTML_WEBPACK_PLUGIN_CONFIG('app', ['vendor', 'app'], './templates/tpl.html'),
+        ),
+        new HtmlWebpackPlugin(
+            COMMON_HTML_WEBPACK_PLUGIN_CONFIG('realworld', ['vendor', 'realworld'], './templates/realworld.html'),
         ),
         new CommonsChunkPlugin({
             name: 'vendor',
@@ -40,7 +43,8 @@ module.exports = function(env = '', argv) {
     return {
         entry: {
             vendor: ['vue'],
-            app: './src/main.js',
+            app: './src/demos/main.js',
+            realworld: './src/realworld/main.js',
         },
         output: {
             path: path.resolve(DIST_DIR),
